@@ -16,6 +16,33 @@ public class JuegoDeGuerra {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        System.out.print("asfas");
     }
     
 }
+
+
+/*
+Jugador
+    nombre
+    MasoRepartido
+    tirarCartaProximaCarta()
+
+Carta
+    numero
+    pelo
+
+MasoRepartido
+    cartas[48]
+    sacarProximaCarta()
+    agregarCartas()
+
+MasoOriginal
+    cartas[48]
+    mezclar()
+    repartir
+
+Mesa
+    cartas[*]
+
+*/

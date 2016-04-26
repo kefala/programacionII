@@ -1,0 +1,9 @@
+Juego Guerra:
+El juego es para 2 jugadoresSe reparten la mitad de las cartas para cada jugador.
+Los jugadores tienen su respectivos pilones con la cartas boca abajo y simultáneamente tiran al medio, boca arriba, la primer carta de sus pilones.
+
+Si el jugador 1 tiró una carta con mayor valor que el valor de la carta quetiró el jugador 2, 
+el jugador 1 se queda con ambas cartascolocándolas boca abajo en el fondo de su pilón.
+en el caso de que ambas cartas tengan el mismo valor, ambos jugadorestiran otra carta nuevamentey se lleva las cartas, 
+el jugador cuya segunda carta sea de mayor valorSe vuelve a repetir la operación anterior hasta que 1 de los jugadores se
+quede sin cartasGana aquel que logra acumular en su pilón todas la cartas que había
