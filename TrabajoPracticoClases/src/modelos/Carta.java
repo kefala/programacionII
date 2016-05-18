@@ -6,10 +6,12 @@ package modelos;
 public class Carta {
     private String numero;
     private String categoria;
+    private String type;
 
-    public Carta(String numero, String categoria) {
+    public Carta(String numero, String categoria, String type) {
         this.numero = numero;
         this.categoria = categoria;
+        this.type = type;
     }
 
     public String getNumero() {
@@ -32,7 +34,9 @@ public class Carta {
         System.out.print("Soy la carta ");
         System.out.print(this.numero);
         System.out.print(" con palo ");
-        System.out.println(this.categoria);
+        System.out.print(this.categoria);
+        System.out.print(" y soy una carta de ");
+        System.out.println(this.type);
     }
 
 }
