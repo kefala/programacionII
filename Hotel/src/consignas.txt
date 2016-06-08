@@ -1,4 +1,3 @@
-/*
 Crear una aplicación en POO con Java, que realice las operaciones especificadas.
 
 Un hotel necesita un sistema de reserva de habitaciones.
@@ -26,4 +25,3 @@ El administrador puede usar el programa para:
 
 El diseño a desarrollar debe facilitar la extensibilidad de nuevos tipos de habitación o clientes y a su vez permitir agregar nuevas consultas.
 La lista de clientes, habitaciones, precios, reservas será grabado en archivos.
-*/
