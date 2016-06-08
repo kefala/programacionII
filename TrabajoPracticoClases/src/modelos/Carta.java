@@ -5,12 +5,12 @@ package modelos;
  */
 public class Carta {
     private String numero;
-    private String categoria;
+    private String palo;
     private String type;
 
-    public Carta(String numero, String categoria, String type) {
+    public Carta(String numero, String palo, String type) {
         this.numero = numero;
-        this.categoria = categoria;
+        this.palo = palo;
         this.type = type;
     }
 
@@ -22,19 +22,19 @@ public class Carta {
         this.numero = numero;
     }
 
-    public String getCategoria() {
-        return categoria;
+    public String getPalo() {
+        return palo;
     }
 
-    public void setCategoria(String categoria) {
-        this.categoria = categoria;
+    public void setPalo(String palo) {
+        this.palo = palo;
     }
 
     public void mostrarse() {
         System.out.print("Soy la carta ");
         System.out.print(this.numero);
         System.out.print(" con palo ");
-        System.out.print(this.categoria);
+        System.out.print(this.palo);
         System.out.print(" y soy una carta de ");
         System.out.println(this.type);
     }
