@@ -1,9 +1,13 @@
 package com.kefala.app.Models;
 
-/**
- * Created by kefala on 14/06/16.
- */
 public class Price {
     private Double amount;
 
+    public Price(Double amount) throws Exception {
+        if (amount < 0) {
+            throw new Exception("El precio no puede ser negetivo");
+        }
+
+        this.amount = amount;
+    }
 }
