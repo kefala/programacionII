@@ -1,22 +1,11 @@
 package com.kefala.app;
 
 import com.kefala.app.Models.Date;
-import junit.framework.Assert;
 import org.junit.Test;
 
-/**
- * Created by kefala on 14/06/16.
- */
+import static org.junit.Assert.assertEquals;
+
 public class DateTest {
-    /**
-     * Date class intance test
-     */
-    @Test
-    public void testDateClassIntance() throws Exception {
-        Date $date = new Date(1);
-        Integer $param = new Integer(1);
-        Assert.assertEquals($param, $date.getNumberDay());
-    }
 
     /**
      * Date toString test
@@ -24,8 +13,7 @@ public class DateTest {
     @Test
     public void testToString() throws Exception {
         Date $date = new Date(1);
-
-        Assert.assertEquals($date.toString(), "1");
+        assertEquals($date.toString(), "1");
     }
 
     /**

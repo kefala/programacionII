@@ -1,17 +1,17 @@
 package com.kefala.app.Models;
 
-/**
- * Created by kefala on 14/06/16.
- */
 public class DateRange {
     private Date since;
     private Date until;
+    private Integer range;
 
     public DateRange(Date since, Date until) throws Exception {
-        if (since.getNumberDay() > until.getNumberDay())
-            throw new Exception("Entro en el error");
+        if (since.getNumberDay() >= until.getNumberDay())
+            throw new Exception("La primer fecha no puede ser mayor a la segunda fecha del rango");
+
         this.since = since;
         this.until = until;
+        this.range = until.getNumberDay() - since.getNumberDay();
     }
 
     public Date getSince() {
@@ -28,5 +28,9 @@ public class DateRange {
 
     public void setUntil(Date until) {
         this.until = until;
+    }
+
+    public Integer getRange() {
+        return range;
     }
 }
