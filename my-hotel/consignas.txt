@@ -1,13 +1,20 @@
 Reserva
+    Cliente
+    RangoFecha
+    Descuento
+    Habitacion
 Habitacion
-    tipo
+    TipoHabitacion
 TipoHabitacion
-    precio
+    Precio
+Precio
+
 Fecha
+RangoFecha
+
 Descuento
 Cliente
-    numero
-    habitual
+ClienteHabitual
 
 La fecha es solo un numero
 
@@ -40,11 +47,4 @@ El diseño a desarrollar debe facilitar la extensibilidad de nuevos tipos de hab
 La lista de clientes, habitaciones, precios, reservas será grabado en archivos.
 
 
--------
-• Consultar por el descuento ofrecido a los clientes habituales
-• Cambiar el valor del descuento ofrecido a los clientes habituales
-• Calcular las ganancias que tendrán en los treinta días
 
-
-La ganancias es la suma total pagada por las habitaciones?
-Cuando un cliente es habitual? El descuento es uno solo o pueden ser varios?

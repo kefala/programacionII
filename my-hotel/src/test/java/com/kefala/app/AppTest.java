@@ -8,6 +8,9 @@ import org.junit.Test;
  */
 public class AppTest {
 
+    /**
+     * First test in app
+     */
     @Test
     public void testPrintHelloWorld() {
         Assert.assertEquals("Hello World", "Hello World");
