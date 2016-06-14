@@ -20,11 +20,21 @@ public class DateRangeTest {
     }
 
     /**
-     * Test exception
+     * Test exception to invalid range
      */
     @Test(expected = Exception.class)
-    public void testDateRangeClass() throws Exception {
+    public void testDateRangeException() throws Exception {
         Date since = new Date(3);
+        Date until = new Date(3);
+        DateRange range = new DateRange(since, until);
+    }
+
+    /**
+     * Test exception to invalid range
+     */
+    @Test(expected = Exception.class)
+    public void testDateRangeException2() throws Exception {
+        Date since = new Date(6);
         Date until = new Date(3);
         DateRange range = new DateRange(since, until);
     }
