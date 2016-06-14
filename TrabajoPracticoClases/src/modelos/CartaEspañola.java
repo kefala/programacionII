@@ -5,7 +5,7 @@ package modelos;
  */
 public class CartaEspañola extends Carta{
 
-    public CartaEspañola(String numero, String categoria) {
-        super(numero, categoria, "España");
+    public CartaEspañola(String numero, String palo) {
+        super(numero, palo, "España");
     }
 }
