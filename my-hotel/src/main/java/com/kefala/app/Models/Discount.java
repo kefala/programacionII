@@ -1,8 +1,17 @@
 package com.kefala.app.Models;
 
-/**
- * Created by kefala on 14/06/16.
- */
 public class Discount {
     private Double percentage;
+
+    public Discount(Double percentage) {
+        this.percentage = percentage;
+    }
+
+    public Double getPercentage() {
+        return percentage;
+    }
+
+    public void setPercentage(Double percentage) {
+        this.percentage = percentage;
+    }
 }

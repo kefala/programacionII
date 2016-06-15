@@ -1,8 +1,5 @@
 package com.kefala.app.Models;
 
-/**
- * Created by kefala on 14/06/16.
- */
 public class Date {
     private Integer numberDay;
 
@@ -32,6 +29,7 @@ public class Date {
      * Class to string
      * @return string
      */
+    @Override
     public String toString() {
         return this.numberDay.toString();
     }

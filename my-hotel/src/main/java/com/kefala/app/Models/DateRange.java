@@ -33,4 +33,13 @@ public class DateRange {
     public Integer getRange() {
         return range;
     }
+
+    @Override
+    public String toString() {
+        return "DateRange{" +
+                "since=" + since +
+                ", until=" + until +
+                ", range=" + range +
+                '}';
+    }
 }
