@@ -1,0 +1,50 @@
+Reserva
+    Cliente
+    RangoFecha
+    Descuento
+    Habitacion
+Habitacion
+    TipoHabitacion
+TipoHabitacion
+    Precio
+Precio
+
+Fecha
+RangoFecha
+
+Descuento
+Cliente
+ClienteHabitual
+
+La fecha es solo un numero
+
+
+
+Crear una aplicación en POO con Java, que realice las operaciones especificadas.
+
+Un hotel necesita un sistema de reserva de habitaciones.
+Las reservas se harán para los días comprendidos entre 1 y 365 (no utilizaremos fechas para
+facilitar el trabajo)
+
+El recepcionista del hotel debe poder hacer la siguientes operaciones:
+• Obtener un listado de las habitaciones disponibles dentro de un rango de días, de
+   acuerdo a su tipo
+• Consultar por el precio de una habitación de acuerdo a su tipo
+• Consultar por el descuento ofrecido a los clientes habituales
+• Consultar por el precio total para un cliente dado, especificando su numero de Cliente,
+   tipo de habitación, número de noches y días en que reserva
+• Reservar una habitación especificando el número de la habitación, numero de Cliente
+  nombre del cliente y entre que días reserva
+• Eliminar una reserva especificando el número de la habitación
+
+El administrador puede usar el programa para:
+• Cambiar el precio de una habitación de acuerdo a su tipo
+• Cambiar el valor del descuento ofrecido a los clientes habituales
+• Calcular las ganancias que tendrán en los treinta días
+• El hotel posee información sobre cuales clientes son habituales.
+
+El diseño a desarrollar debe facilitar la extensibilidad de nuevos tipos de habitación o clientes y a su vez permitir agregar nuevas consultas.
+La lista de clientes, habitaciones, precios, reservas será grabado en archivos.
+
+
+
