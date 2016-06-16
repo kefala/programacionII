@@ -1,0 +1,27 @@
+recepcionista
+hotel
+habitaciones (disponible, tipo, precio)
+clientes
+descuento
+reserva
+administrador
+ganancias
+
+
+
+El recepcionista del hotel debe poder hacer la siguientes operaciones:
+• Obtener un listado de las habitaciones disponibles dentro de un rango de días, de
+   acuerdo a su tipo
+• Consultar por el precio de una habitación de acuerdo a su tipo
+• Consultar por el descuento ofrecido a los clientes habituales
+• Consultar por el precio total para un cliente dado, especificando su numero de Cliente,
+   tipo de habitación, número de noches y días en que reserva
+• Reservar una habitación especificando el número de la habitación, numero de Cliente
+  nombre del cliente y entre que días reserva
+• Eliminar una reserva especificando el número de la habitación
+
+El administrador puede usar el programa para:
+• Cambiar el precio de una habitación de acuerdo a su tipo
+• Cambiar el valor del descuento ofrecido a los clientes habituales
+• Calcular las ganancias que tendrán en los treinta días
+• El hotel posee información sobre cuales clientes son habituales.
