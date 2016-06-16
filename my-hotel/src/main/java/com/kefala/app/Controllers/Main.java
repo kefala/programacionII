@@ -7,6 +7,6 @@ import com.kefala.app.Views.View;
  */
 public class Main {
     public static void start() {
-        com.kefala.app.Controllers.Home.Main.showMenuRecepcionist();
+        com.kefala.app.Controllers.Login.Main.showView();
     }
 }
