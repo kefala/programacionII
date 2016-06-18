@@ -12,7 +12,13 @@ public class UserDAO implements Serializable, FilesMapInterface {
     private Entity entity;
 
     public UserDAO() {
-        this.entity = new Entity("users.dat");
+        this.entity = new Entity("users.ser");
+    }
+
+    public UserDAO(String name, Integer id) {
+        this.entity = new Entity("users.ser");
+        this.name = name;
+        this.id = id;
     }
 
     public Integer getId() {
@@ -32,16 +38,26 @@ public class UserDAO implements Serializable, FilesMapInterface {
     }
 
     public void save() {
-        UserDAO user = new UserDAO();
-        user.setId(1);
-        user.setName("Fachita");
-        entity.add(user);
+        entity.add(this);
     }
 
-    public ArrayList<UserDAO> getAll() {
-        ArrayList<UserDAO> list;
-        list = (ArrayList) entity.getAll();
+    public ArrayList getAll() {
+        ArrayList list;
+        System.out.printf("Sigue");
+        list = entity.getAll();
+        System.out.printf("No sigue");
         return list;
+    }
+
+    public Boolean login(String username) {
+        ArrayList users = this.getAll();
+        for (UserDAO user:users) {
+            if (user.getName() == username) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     public Object getById(Integer id) {

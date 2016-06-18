@@ -8,11 +8,11 @@ import java.util.ArrayList;
  */
 public class Entity implements Serializable {
     private String fileName;
-    private ArrayList<Object> objects;
+    private ArrayList objects;
 
     public Entity(String fileName) {
         this.fileName = fileName;
-        this.objects = new ArrayList<Object>();
+        this.objects = new ArrayList();
     }
 
     public String getFileName() {
@@ -34,9 +34,11 @@ public class Entity implements Serializable {
             FileInputStream fis = new FileInputStream("/home/kefala/Documentos/java/files/" + fileName);
             ObjectInputStream ois = new ObjectInputStream(fis);
 
-            if (ois.readObject() != null) {
-                objects = (ArrayList<Object>) ois.readObject();
+            Object reader = ois.readObject();
+            if (reader != null && reader != "") {
+                objects = (ArrayList)reader;
             }
+
             objects.add(object);
 
             FileOutputStream fo = new FileOutputStream("/home/kefala/Documentos/java/files/" + fileName);
@@ -62,7 +64,7 @@ public class Entity implements Serializable {
             fis = new FileInputStream("/home/kefala/Documentos/java/files/" + fileName);
             ObjectInputStream ois = new ObjectInputStream(fis);
             if (ois.readObject() != null) {
-                objects = (ArrayList<Object>) ois.readObject();
+                objects = (ArrayList) ois.readObject();
             }
         } catch (EOFException e) {
             //e.printStackTrace();
