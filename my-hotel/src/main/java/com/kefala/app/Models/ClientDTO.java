@@ -1,12 +1,12 @@
 package com.kefala.app.Models;
 
-public class Client {
+public class ClientDTO {
     private Integer code;
     private String firstName;
     private String lastName;
     private Boolean isCommon;
 
-    public Client(Integer code, String firstName, String lastName, Boolean isCommon) throws Exception {
+    public ClientDTO(Integer code, String firstName, String lastName, Boolean isCommon) throws Exception {
         if (code < 1 )
             throw new Exception("El código de cliente no puede ser negativo");
         this.code = code;
@@ -17,7 +17,7 @@ public class Client {
 
     @Override
     public String toString() {
-        return "Client{" +
+        return "ClientDTO{" +
                 "code=" + code +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +

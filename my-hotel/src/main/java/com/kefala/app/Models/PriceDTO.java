@@ -1,9 +1,9 @@
 package com.kefala.app.Models;
 
-public class Price {
+public class PriceDTO {
     private Double amount;
 
-    public Price(Double amount) throws Exception {
+    public PriceDTO(Double amount) throws Exception {
         if (amount < 0) {
             throw new Exception("El precio no puede ser negetivo");
         }

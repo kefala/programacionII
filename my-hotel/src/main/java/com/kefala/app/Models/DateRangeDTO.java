@@ -1,11 +1,11 @@
 package com.kefala.app.Models;
 
-public class DateRange {
-    private Date since;
-    private Date until;
+public class DateRangeDTO {
+    private DateDTO since;
+    private DateDTO until;
     private Integer range;
 
-    public DateRange(Date since, Date until) throws Exception {
+    public DateRangeDTO(DateDTO since, DateDTO until) throws Exception {
         if (since.getNumberDay() >= until.getNumberDay())
             throw new Exception("La primer fecha no puede ser mayor a la segunda fecha del rango");
 
@@ -14,19 +14,19 @@ public class DateRange {
         this.range = until.getNumberDay() - since.getNumberDay();
     }
 
-    public Date getSince() {
+    public DateDTO getSince() {
         return since;
     }
 
-    public void setSince(Date since) {
+    public void setSince(DateDTO since) {
         this.since = since;
     }
 
-    public Date getUntil() {
+    public DateDTO getUntil() {
         return until;
     }
 
-    public void setUntil(Date until) {
+    public void setUntil(DateDTO until) {
         this.until = until;
     }
 
@@ -36,7 +36,7 @@ public class DateRange {
 
     @Override
     public String toString() {
-        return "DateRange{" +
+        return "DateRangeDTO{" +
                 "since=" + since +
                 ", until=" + until +
                 ", range=" + range +

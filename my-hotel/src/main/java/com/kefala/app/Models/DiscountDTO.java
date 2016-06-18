@@ -1,9 +1,9 @@
 package com.kefala.app.Models;
 
-public class Discount {
+public class DiscountDTO {
     private Double percentage;
 
-    public Discount(Double percentage) {
+    public DiscountDTO(Double percentage) {
         this.percentage = percentage;
     }
 

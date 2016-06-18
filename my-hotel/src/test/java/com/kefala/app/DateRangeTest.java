@@ -1,7 +1,7 @@
 package com.kefala.app;
 
-import com.kefala.app.Models.Date;
-import com.kefala.app.Models.DateRange;
+import com.kefala.app.Models.DateDTO;
+import com.kefala.app.Models.DateRangeDTO;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -13,9 +13,9 @@ public class DateRangeTest {
      */
     @Test
     public void testRange() throws Exception {
-        Date since = new Date(2);
-        Date until = new Date(3);
-        DateRange range = new DateRange(since, until);
+        DateDTO since = new DateDTO(2);
+        DateDTO until = new DateDTO(3);
+        DateRangeDTO range = new DateRangeDTO(since, until);
         assertEquals(range.getRange(), new Integer(1));
     }
 
@@ -24,9 +24,9 @@ public class DateRangeTest {
      */
     @Test(expected = Exception.class)
     public void testDateRangeException() throws Exception {
-        Date since = new Date(3);
-        Date until = new Date(3);
-        DateRange range = new DateRange(since, until);
+        DateDTO since = new DateDTO(3);
+        DateDTO until = new DateDTO(3);
+        DateRangeDTO range = new DateRangeDTO(since, until);
     }
 
     /**
@@ -34,9 +34,9 @@ public class DateRangeTest {
      */
     @Test(expected = Exception.class)
     public void testDateRangeException2() throws Exception {
-        Date since = new Date(6);
-        Date until = new Date(3);
-        DateRange range = new DateRange(since, until);
+        DateDTO since = new DateDTO(6);
+        DateDTO until = new DateDTO(3);
+        DateRangeDTO range = new DateRangeDTO(since, until);
     }
 
 }
