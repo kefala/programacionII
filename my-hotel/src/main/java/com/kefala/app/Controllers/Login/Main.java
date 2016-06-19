@@ -20,7 +20,7 @@ public class Main {
     public static void login(String userName) {
         UserDAO user = new UserDAO();
         if (user.login(userName)) {
-            UserDTO dto = user.getDto(userName);
+            UserDTO dto = user.getUserByUserName(userName);
             Router.router("Home", dto);
         } else {
             View.showMsg("\n\n\n\nEl usuario es invalido\n\n");

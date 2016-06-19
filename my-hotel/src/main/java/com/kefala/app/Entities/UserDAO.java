@@ -25,7 +25,7 @@ public class UserDAO extends DAO<UserDTO> {
         return false;
     }
 
-    public UserDTO getDto (String username) {
+    public UserDTO getUserByUserName (String username) {
         List<UserDTO> users = getAll();
         for (UserDTO user:users) {
             if (user.getUsername().equals(username)) {
