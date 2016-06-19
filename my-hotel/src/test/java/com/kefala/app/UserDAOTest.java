@@ -13,11 +13,7 @@ public class UserDAOTest {
 
     @Test
     public void notNegative() throws Exception {
-        UserDAO userDao = new UserDAO("Fachota", 1);
-        if (userDao.login("asfas"))
-            System.out.printf("SI");
-        else
-            System.out.printf("NO");
+
     }
 
 }

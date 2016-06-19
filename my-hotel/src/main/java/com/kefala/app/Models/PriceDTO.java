@@ -7,7 +7,6 @@ public class PriceDTO {
         if (amount < 0) {
             throw new Exception("El precio no puede ser negetivo");
         }
-
         this.amount = amount;
     }
 }
