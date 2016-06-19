@@ -1,21 +1,33 @@
 package com.kefala.app.Controllers.Home;
 
 
-import com.kefala.app.Views.View;
+import com.kefala.app.Controllers.Router;
+import com.kefala.app.Models.UserDTO;
+import com.kefala.app.Views.Home.Menus;
 
-import java.util.ArrayList;
 
 /**
  * Created by kefala on 15/06/16.
  */
 public class Main {
-
-    public static void showMenuRecepcionist() {
-        View.showTitle("HOTEL APP");
-        ArrayList<String> menuOptions = new ArrayList<String>();
-        menuOptions.add("Clientes");
-        menuOptions.add("Habitaciones");
-        menuOptions.add("Reservas");
-        View.showOptionMenu(menuOptions);
+    String sectionOption;
+    //TODO: create not found role exception
+    public static void showView(UserDTO user) {
+        String sectionOption = null;
+        switch (user.getRole().getId()) {
+            case 1:
+                sectionOption = Menus.showMenuAdministrator();
+                break;
+            case 2:
+                sectionOption = Menus.showMenuRecepcionist();
+                break;
+            default:
+                System.out.printf("Ocurrió un error");
+                break;
+        }
+        System.out.printf("\n" + sectionOption + "\n");
+        Router.router(sectionOption, user);
     }
+
+
 }

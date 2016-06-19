@@ -67,9 +67,11 @@ public abstract class DAO<MODEL_DTO extends DTO> implements DAOInterface<MODEL_D
             ObjectInputStream ois = new ObjectInputStream(new FileInputStream(getFile()));
             listado = (ArrayList<MODEL_DTO>)ois.readObject();
             ois.close();
-        }catch (IOException ioe){
+        } catch (EOFException e){
+            //e.printStackTrace();
+        } catch (IOException ioe){
             ioe.printStackTrace();
-        }catch (Exception e){
+        } catch (Exception e){
             e.printStackTrace();
         }
         return listado;

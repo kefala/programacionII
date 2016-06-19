@@ -1,6 +1,8 @@
 package com.kefala.app.Controllers.Login;
 
+import com.kefala.app.Controllers.Router;
 import com.kefala.app.Entities.UserDAO;
+import com.kefala.app.Models.UserDTO;
 import com.kefala.app.Views.View;
 
 /**
@@ -17,11 +19,12 @@ public class Main {
 
     public static void login(String userName) {
         UserDAO user = new UserDAO();
-        if (false) {
-            com.kefala.app.Controllers.Home.Main.showMenuRecepcionist();
+        if (user.login(userName)) {
+            UserDTO dto = user.getDto(userName);
+            Router.router("Home", dto);
         } else {
             View.showMsg("\n\n\n\nEl usuario es invalido\n\n");
-            com.kefala.app.Controllers.Login.Main.showView();
+            Router.router("Login", null);
         }
     }
 }
