@@ -17,7 +17,7 @@ public class Menus {
         menuOptions.add("Recepcionistas");
         menuOptions.add("Tarifas");
         View.showOptionMenu(menuOptions);
-        View.showMsg("\n Ingrese la opción a elegir: ");
+        View.showMsg("\nIngrese la opción a elegir: ");
         return View.listenMsg();
     }
 
@@ -28,7 +28,7 @@ public class Menus {
         menuOptions.add("Habitaciones");
         menuOptions.add("Reservas");
         View.showOptionMenu(menuOptions);
-        View.showMsg("\n Ingrese la opción a elegir: ");
+        View.showMsg("\nIngrese la opción a elegir: ");
         return View.listenMsg();
     }
 }

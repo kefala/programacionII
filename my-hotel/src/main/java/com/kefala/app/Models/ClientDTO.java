@@ -1,36 +1,28 @@
 package com.kefala.app.Models;
 
-public class ClientDTO {
-    private Integer code;
+import java.io.Serializable;
+
+public class ClientDTO extends DTO {
+    private Integer id;
     private String firstName;
     private String lastName;
     private Boolean isCommon;
 
-    public ClientDTO(Integer code, String firstName, String lastName, Boolean isCommon) throws Exception {
-        if (code < 1 )
-            throw new Exception("El código de cliente no puede ser negativo");
-        this.code = code;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.isCommon = isCommon;
-    }
+    public ClientDTO() {}
 
     @Override
     public String toString() {
         return "ClientDTO{" +
-                "code=" + code +
+                "code=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", isCommon=" + isCommon +
                 '}';
     }
 
-    public Integer getCode() {
-        return code;
-    }
-
-    public void setCode(Integer code) {
-        this.code = code;
+    @Override
+    public Serializable getId() {
+        return id;
     }
 
     public String getFirstName() {
