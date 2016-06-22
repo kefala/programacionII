@@ -10,7 +10,6 @@ import com.kefala.app.Views.Home.Menus;
  * Created by kefala on 15/06/16.
  */
 public class Main {
-    String sectionOption;
     //TODO: create not found role exception
     public static void showView(UserDTO user) {
         String sectionOption = null;
