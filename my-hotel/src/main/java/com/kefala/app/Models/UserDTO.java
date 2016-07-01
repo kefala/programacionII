@@ -6,7 +6,6 @@ import java.io.Serializable;
  * Created by kefala on 16/06/16.
  */
 public class UserDTO extends DTO {
-    private Integer id;
     private String username;
     private RoleDTO role;
 
@@ -30,9 +29,5 @@ public class UserDTO extends DTO {
 
     public void setRole(RoleDTO role) {
         this.role = role;
-    }
-
-    public Serializable getId() {
-        return id;
     }
 }

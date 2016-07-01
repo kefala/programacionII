@@ -5,6 +5,14 @@ import java.io.Serializable;
 /**
  * Created by kefala on 19/06/16.
  */
-public abstract class DTO implements Serializable {
-    public abstract Serializable getId();
+public class DTO implements Serializable {
+    private Integer id;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 }
