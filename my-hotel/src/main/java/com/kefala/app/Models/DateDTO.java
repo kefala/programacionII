@@ -1,9 +1,9 @@
 package com.kefala.app.Models;
 
-public class Date {
+public class DateDTO {
     private Integer numberDay;
 
-    public Date(Integer numberDay) throws Exception {
+    public DateDTO(Integer numberDay) throws Exception {
         if (numberDay < 1 || numberDay > 365)
             throw new Exception("Solo se aceptan numeros de fecha entre 1 y 365");
         this.numberDay = numberDay;
