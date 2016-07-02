@@ -9,7 +9,6 @@ public class UserDTO extends DTO {
     private String username;
     private RoleDTO role;
 
-
     public UserDTO(String username, RoleDTO role) {
         this.username = username;
         this.role = role;

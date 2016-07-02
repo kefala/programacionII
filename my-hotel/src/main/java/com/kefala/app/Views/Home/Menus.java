@@ -12,10 +12,10 @@ public class Menus {
         View.showTitle("INICIO - HOTEL APP");
         ArrayList<String> menuOptions = new ArrayList<String>();
         menuOptions.add("Clientes");
+        menuOptions.add("Tipos y Tarifas de Habitaciones");
         menuOptions.add("Habitaciones");
         menuOptions.add("Reservas");
         menuOptions.add("Recepcionistas");
-        menuOptions.add("Tarifas");
         View.showOptionMenu(menuOptions);
         View.showMsg("\nIngrese la opción a elegir: ");
         return View.listenMsg();

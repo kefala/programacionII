@@ -12,10 +12,10 @@ public class Router {
         if (user == null) {
             com.kefala.app.Controllers.Login.Main.showView();
         } else {
-            if (section.equals("Home") || section.equals("0")) {
+            if (section.equals("Home")) {
                 com.kefala.app.Controllers.Home.Main.showView(user);
             }
-            if (section.equals("Clients") || section.equals("1")) {
+            if (section.equals("Clients")) {
                 com.kefala.app.Controllers.Clients.Main.showView(user);
             }
 

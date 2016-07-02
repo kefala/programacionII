@@ -21,10 +21,12 @@ public class Main {
         ClientDAO clientDAO = new ClientDAO();
         clientDAO.create(client);
     }
+
     public static void update(ClientDTO client) {
         ClientDAO clientDAO = new ClientDAO();
         clientDAO.update(client);
     }
+
     public static void delete(ClientDTO client) {
         ClientDAO clientDAO = new ClientDAO();
         clientDAO.delete(client);
