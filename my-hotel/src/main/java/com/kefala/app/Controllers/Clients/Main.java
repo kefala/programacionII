@@ -24,11 +24,23 @@ public class Main {
         clientDAO.create(client);
     }
     public static void update(ClientDTO client) {
-
+        ClientDAO clientDAO = new ClientDAO();
+        clientDAO.update(client);
     }
     public static void delete(ClientDTO client) {
-
+        ClientDAO clientDAO = new ClientDAO();
+        clientDAO.delete(client);
     }
 
+    public static ClientDTO find(Integer id) {
+        ClientDAO clientDAO = new ClientDAO();
+        ClientDTO clientDTO = clientDAO.find(id);
+        return clientDTO;
+    }
 
+    public static List<ClientDTO> getClients() {
+        ClientDAO clientDAO = new ClientDAO();
+        List<ClientDTO> clients = clientDAO.getAll();
+        return clients;
+    }
 }

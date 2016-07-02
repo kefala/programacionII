@@ -17,7 +17,7 @@ public interface DAOInterface<MODEL_DTO> {
 
     List<MODEL_DTO> getAll();
 
-    MODEL_DTO find(Serializable key);
+    MODEL_DTO find(Integer key);
 
     void update(MODEL_DTO entity);
 

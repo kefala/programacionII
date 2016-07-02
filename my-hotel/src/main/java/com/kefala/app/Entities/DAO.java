@@ -33,12 +33,12 @@ public abstract class DAO<MODEL_DTO extends DTO> implements DAOInterface<MODEL_D
         return fileManager.readContent();
     }
 
-    public MODEL_DTO find(Serializable key) {
+    public MODEL_DTO find(Integer id) {
         List<MODEL_DTO> currents = fileManager.readContent();
         MODEL_DTO model = null;
         for(MODEL_DTO obj: currents){
-            if(obj.getId().equals(key)){
-                model =obj;
+            if(obj.getId().equals(id)){
+                model = obj;
             }
         }
         return model;
@@ -55,12 +55,12 @@ public abstract class DAO<MODEL_DTO extends DTO> implements DAOInterface<MODEL_D
     }
 
 
-    protected int findIndex(Serializable key) {
+    protected int findIndex(Integer id) {
         List<MODEL_DTO> currents = fileManager.readContent();
         int index = -1, i =0;
         for(MODEL_DTO obj: currents){
-            if(obj.getId().equals(key)){
-                index =i;
+            if(obj.getId().equals(id)){
+                index = i;
             }
             i++;
         }

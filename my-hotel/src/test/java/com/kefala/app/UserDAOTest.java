@@ -41,7 +41,7 @@ public class UserDAOTest {
         UserDAO user = new UserDAO();
         List<UserDTO> users = user.getAll();
         for (UserDTO user2:users) {
-            System.out.printf("\n" + user2.getUsername() + "\n");
+            System.out.printf("\n" + user2.getId() + "." + user2.getUsername() + ", " + user2.getRole().getName() +"\n");
         }
     }
 
@@ -49,7 +49,7 @@ public class UserDAOTest {
     @Test
     public void createRecep() throws Exception {
         UserDAO userDao = new UserDAO();
-        UserDTO userDto = new UserDTO("kefala", RoleDTO.ADMINISTRATOR);
+        UserDTO userDto = new UserDTO("sarache", RoleDTO.RECEPTIONIST);
         userDao.create(userDto);
     }
     /*

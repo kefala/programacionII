@@ -2,6 +2,7 @@ package com.kefala.app.Entities;
 
 import com.kefala.app.Models.UserDTO;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**

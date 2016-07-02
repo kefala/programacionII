@@ -2,6 +2,7 @@ package com.kefala.app.Views.Clients;
 
 import com.kefala.app.Controllers.Clients.Main;
 import com.kefala.app.Controllers.Router;
+import com.kefala.app.Entities.ClientDAO;
 import com.kefala.app.Models.ClientDTO;
 import com.kefala.app.Models.UserDTO;
 import com.kefala.app.Views.View;
@@ -20,12 +21,15 @@ public class Menus {
         String option = showOptions();
         if (option.equals("1")) {
             createClient();
+            clients = Main.getClients();
         }
         if (option.equals("2")) {
             deleteClient(clients);
+            clients = Main.getClients();
         }
         if (option.equals("3")) {
             updateClient(clients);
+            clients = Main.getClients();
         }
         if (option.equals("4")) {
             Router.router("Home", user);
@@ -41,29 +45,67 @@ public class Menus {
         client.setFirstName(View.listenMsg());
         View.showMsg("\nApellido: ");
         client.setLastName(View.listenMsg());
-        client.setCommon(false);
+        client.setCommon(true);
         Main.create(client);
         View.showMsg("\n\nSe guardo con exito al nuevo cliente.\n\n");
     }
 
     public static void deleteClient(List<ClientDTO> clients) {
         listClients(clients);
-        View.showMsg("\n\nIngrese el id del usuario a eliminar.\n\n");
-        View.showMsg("\n\nELiminar cliente.\n\n");
+        String response;
+        View.showMsg("\nIngrese el numero de cliente a eliminar: ");
+        Integer id = Integer.valueOf(View.listenMsg());
+        ClientDTO clientDTO = Main.find(id);
+        if (clientDTO != null) {
+            View.showMsg("\nEl cliente " + clientDTO.getFirstName() + " " + clientDTO.getLastName() + " va a ser eliminado. Confirme para continuar. (s/n)\n");
+            response = View.listenMsg();
+            if (response.equals("s")) {
+                Main.delete(clientDTO);
+            }
+        } else {
+            View.showMsg("\n\nEl codigo de usuario no existe, desea borrar otro usuario? (s/n)");
+            response = View.listenMsg();
+            if (response.equals("s")) {
+                deleteClient(clients);
+            }
+        }
     }
 
     public static void updateClient(List<ClientDTO> clients) {
         listClients(clients);
-        View.showMsg("\n\nIngrese el id del usuario a editar.\n\n");
-        View.showMsg("\n\neditar cliente.\n\n");
+        String response;
+        View.showMsg("\nIngrese el numero de cliente a editar: ");
+        Integer id = Integer.valueOf(View.listenMsg());
+        ClientDTO clientDTO = Main.find(id);
+        if (clientDTO != null) {
+            View.showMsg("\nNombre(" + clientDTO.getFirstName() + "): ");
+            clientDTO.setFirstName(View.listenMsg());
+            View.showMsg("\nApellido(" + clientDTO.getLastName() + "): ");
+            clientDTO.setLastName(View.listenMsg());
+            View.showMsg("\nEl cliente " + clientDTO.getFirstName() + " " + clientDTO.getLastName() + " va a ser guardado. Confirme para continuar. (s/n)\n");
+            response = View.listenMsg();
+            if (response.equals("s")) {
+                Main.update(clientDTO);
+            }
+        } else {
+            View.showMsg("\n\nEl codigo de usuario no existe, desea eidtar otro usuario? (s/n)");
+            response = View.listenMsg();
+            if (response.equals("s")) {
+                updateClient(clients);
+            }
+        }
+
     }
 
     public static void listClients(List<ClientDTO> clients) {
+
         for (ClientDTO client:clients) {
             if (client.getId() != null) {
-                View.showMsg(client.getFirstName() + "\n");
+                View.showMsg("\n" + client.getId());
+                View.showMsg(". " + client.getFirstName() + " " + client.getLastName());
             }
         }
+        View.showMsg("\n\n");
     }
 
     public static String showOptions() {
