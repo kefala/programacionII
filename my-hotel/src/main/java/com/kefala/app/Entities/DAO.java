@@ -80,7 +80,6 @@ public abstract class DAO<MODEL_DTO extends DTO> implements DAOInterface<MODEL_D
             });
             key = obj.getId();
         }
-
         return ++key;
     }
 

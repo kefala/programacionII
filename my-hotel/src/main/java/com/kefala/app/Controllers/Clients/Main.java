@@ -1,6 +1,5 @@
 package com.kefala.app.Controllers.Clients;
 
-import com.kefala.app.Controllers.Router;
 import com.kefala.app.Entities.ClientDAO;
 import com.kefala.app.Models.ClientDTO;
 import com.kefala.app.Models.UserDTO;
@@ -15,7 +14,6 @@ public class Main {
     public static void showView(UserDTO user) {
         ClientDAO clientDAO = new ClientDAO();
         List<ClientDTO> clients =clientDAO.getAll();
-
         Menus.showMenu(clients, user);
     }
 

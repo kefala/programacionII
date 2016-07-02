@@ -2,7 +2,6 @@ package com.kefala.app.Views.Clients;
 
 import com.kefala.app.Controllers.Clients.Main;
 import com.kefala.app.Controllers.Router;
-import com.kefala.app.Entities.ClientDAO;
 import com.kefala.app.Models.ClientDTO;
 import com.kefala.app.Models.UserDTO;
 import com.kefala.app.Views.View;
@@ -16,7 +15,6 @@ import java.util.List;
 public class Menus {
     public static void showMenu(List<ClientDTO> clients, UserDTO user) {
         View.showTitle("CLIENTES - HOTEL APP");
-
         listClients(clients);
         String option = showOptions();
         if (option.equals("1")) {
@@ -94,11 +92,9 @@ public class Menus {
                 updateClient(clients);
             }
         }
-
     }
 
     public static void listClients(List<ClientDTO> clients) {
-
         for (ClientDTO client:clients) {
             if (client.getId() != null) {
                 View.showMsg("\n" + client.getId());
@@ -123,7 +119,6 @@ public class Menus {
             View.showMsg("\nIngrese la opción a elegir: ");
             option = View.listenMsg();
         } while (!(option.equals("1")|| option.equals("2") || option.equals("3") || option.equals("4")));
-
         return option;
     }
 }

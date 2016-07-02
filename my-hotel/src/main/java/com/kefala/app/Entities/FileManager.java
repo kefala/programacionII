@@ -43,7 +43,6 @@ public class FileManager<MODEL_DTO>  {
             e.printStackTrace();
         }
         return listado;
-
     }
 
     public void writeList(List<MODEL_DTO> list) {
