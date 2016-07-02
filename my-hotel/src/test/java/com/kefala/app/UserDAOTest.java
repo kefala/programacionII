@@ -31,7 +31,7 @@ public class UserDAOTest {
     private List<UserDTO> users = new ArrayList<UserDTO>();
 
     @Before
-    private void before(){
+    public void before(){
         userDao.setFileManager(fileManager);
         when(fileManager.readContent()).thenReturn(users);
     }
@@ -40,16 +40,19 @@ public class UserDAOTest {
     public void getAll() throws Exception {
         UserDAO user = new UserDAO();
         List<UserDTO> users = user.getAll();
-        System.out.printf("\n" + users.toString() + "\n");
+        for (UserDTO user2:users) {
+            System.out.printf("\n" + user2.getUsername() + "\n");
+        }
     }
 
-    /*
+
     @Test
     public void createRecep() throws Exception {
         UserDAO userDao = new UserDAO();
-        UserDTO userDto = new UserDTO("juan", RoleDTO.RECEPTIONIST);
+        UserDTO userDto = new UserDTO("kefala", RoleDTO.ADMINISTRATOR);
         userDao.create(userDto);
     }
+    /*
     */
 
     /*
@@ -86,13 +89,13 @@ public class UserDAOTest {
     /*
     */
 
-    /*
+
     @Test
     public void deleteAll() throws Exception {
         UserDAO userDao = new UserDAO();
         userDao.deleteAll();
     }
-
+/*
     */
 
 }

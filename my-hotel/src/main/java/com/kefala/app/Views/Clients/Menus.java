@@ -16,19 +16,16 @@ public class Menus {
     public static void showMenu(List<ClientDTO> clients, UserDTO user) {
         View.showTitle("CLIENTES - HOTEL APP");
 
-        for (ClientDTO client:clients) {
-            View.showMsg(client.toString());
-        }
+        listClients(clients);
         String option = showOptions();
-
         if (option.equals("1")) {
             createClient();
         }
         if (option.equals("2")) {
-            deleteClient();
+            deleteClient(clients);
         }
         if (option.equals("3")) {
-            updateClient();
+            updateClient(clients);
         }
         if (option.equals("4")) {
             Router.router("Home", user);
@@ -36,7 +33,6 @@ public class Menus {
         if (option.equals("1") || option.equals("2") || option.equals("3")) {
             showMenu(clients, user);
         }
-
     }
 
     public static void createClient() {
@@ -50,31 +46,28 @@ public class Menus {
         View.showMsg("\n\nSe guardo con exito al nuevo cliente.\n\n");
     }
 
-    public static void deleteClient() {
-        ClientDTO client = new ClientDTO();
-        View.showMsg("\nNombre: ");
-        client.setFirstName(View.listenMsg());
-        View.showMsg("\nApellido: ");
-        client.setLastName(View.listenMsg());
-        client.setCommon(false);
-        Main.create(client);
-        View.showMsg("\n\nSe guardo con exito al nuevo cliente.\n\n");
+    public static void deleteClient(List<ClientDTO> clients) {
+        listClients(clients);
+        View.showMsg("\n\nIngrese el id del usuario a eliminar.\n\n");
+        View.showMsg("\n\nELiminar cliente.\n\n");
     }
 
-    public static void updateClient() {
-        ClientDTO client = new ClientDTO();
-        View.showMsg("\nNombre: ");
-        client.setFirstName(View.listenMsg());
-        View.showMsg("\nApellido: ");
-        client.setLastName(View.listenMsg());
-        client.setCommon(false);
-        Main.create(client);
-        View.showMsg("\n\nSe guardo con exito al nuevo cliente.\n\n");
+    public static void updateClient(List<ClientDTO> clients) {
+        listClients(clients);
+        View.showMsg("\n\nIngrese el id del usuario a editar.\n\n");
+        View.showMsg("\n\neditar cliente.\n\n");
+    }
+
+    public static void listClients(List<ClientDTO> clients) {
+        for (ClientDTO client:clients) {
+            if (client.getId() != null) {
+                View.showMsg(client.getFirstName() + "\n");
+            }
+        }
     }
 
     public static String showOptions() {
         String option = null;
-
         do {
             if (option != null) {
                 View.showMsg("\nLa opcion ingresada es incorrecta \n");
