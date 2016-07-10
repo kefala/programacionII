@@ -2,6 +2,7 @@ package com.kefala.app.Views.Rooms;
 
 import com.kefala.app.Controllers.Rooms.Types;
 import com.kefala.app.Controllers.Router;
+import com.kefala.app.Models.PriceDTO;
 import com.kefala.app.Models.RoomTypeDTO;
 import com.kefala.app.Models.UserDTO;
 import com.kefala.app.Views.View;
@@ -14,7 +15,7 @@ import java.util.List;
  */
 public class TypesMenus {
     public static void showMenu(List<RoomTypeDTO> roomsTypes, UserDTO user) {
-        View.showTitle("CLIENTES - HOTEL APP");
+        View.showTitle("TIPOS DE HABITACIONES - HOTEL APP");
         listRoomTypes(roomsTypes);
         String option = showOptions();
         if (option.equals("1")) {
@@ -39,15 +40,20 @@ public class TypesMenus {
 
     public static void createRoomType() {
         RoomTypeDTO roomTypeDTO = new RoomTypeDTO();
-        /*
-        View.showMsg("\nNombre: ");
-        roomTypeDTO.setFirstName(View.listenMsg());
-        View.showMsg("\nApellido: ");
-        roomTypeDTO.setLastName(View.listenMsg());
-        roomTypeDTO.setCommon(true);
+        View.showMsg("\nNombre del tipo de habitación: ");
+        roomTypeDTO.setName(View.listenMsg());
+        View.showMsg("\nNombre del tipo de habitación: ");
+        PriceDTO price = null;
+        price = new PriceDTO();
+        try {
+            price.setAmount(Double.valueOf(View.listenMsg()));
+        } catch (Exception e) {
+            View.showMsg("\nIngrese un precio correcto: ");
+            price.setAmount(Double.valueOf(View.listenMsg()));
+        }
+        roomTypeDTO.setPrice(price);
         Types.create(roomTypeDTO);
-        */
-        View.showMsg("\n\nSe guardo con exito al nuevo cliente.\n\n");
+        View.showMsg("\n\nSe guardo con exito el nuevo tipo de habitación.\n\n");
     }
 
     public static void deleteRoomType(List<RoomTypeDTO> roomsTypes) {
@@ -117,9 +123,9 @@ public class TypesMenus {
                 View.showMsg("\nLa opcion ingresada es incorrecta \n");
             }
             ArrayList<String> menuOptions = new ArrayList<String>();
-            menuOptions.add("Agregar cliente");
-            menuOptions.add("Borrar cliente");
-            menuOptions.add("Editar cliente");
+            menuOptions.add("Agregar tipo de habitación");
+            menuOptions.add("Borrar tipo de habitación");
+            menuOptions.add("Editar tipo de habitación");
             menuOptions.add("Volver al inicio");
             View.showOptionMenu(menuOptions);
             View.showMsg("\nIngrese la opción a elegir: ");

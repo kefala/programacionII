@@ -5,8 +5,17 @@ package com.kefala.app.Models;
  */
 public class RoomTypeDTO extends DTO {
     private String name;
+    private PriceDTO price;
 
     public RoomTypeDTO() {
+    }
+
+    public PriceDTO getPrice() {
+        return price;
+    }
+
+    public void setPrice(PriceDTO price) {
+        this.price = price;
     }
 
     public String getName() {
