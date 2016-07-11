@@ -12,8 +12,8 @@ import java.util.List;
  */
 public class Types {
     public static void showView(UserDTO user) {
-        RoomTypeDAO clientDAO = new RoomTypeDAO();
-        List<RoomTypeDTO> roomTypes =clientDAO.getAll();
+        RoomTypeDAO roomTypeDao = new RoomTypeDAO();
+        List<RoomTypeDTO> roomTypes = roomTypeDao.getAll();
         TypesMenus.showMenu(roomTypes, user);
     }
 

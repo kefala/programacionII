@@ -19,7 +19,7 @@ public class Router {
                 com.kefala.app.Controllers.Clients.Main.showView(user);
             }
             if (section.equals("Tipo de habitación")) {
-                com.kefala.app.Controllers.Clients.Main.showView(user);
+                com.kefala.app.Controllers.Rooms.Types.showView(user);
             }
 
             //TODO: create not found section exceptions

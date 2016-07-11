@@ -49,7 +49,7 @@ public class UserDAOTest {
     @Test
     public void createRecep() throws Exception {
         UserDAO userDao = new UserDAO();
-        UserDTO userDto = new UserDTO("sarache", RoleDTO.RECEPTIONIST);
+        UserDTO userDto = new UserDTO("kefala", RoleDTO.ADMINISTRATOR);
         userDao.create(userDto);
     }
     /*

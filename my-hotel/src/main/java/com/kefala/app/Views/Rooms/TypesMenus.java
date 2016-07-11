@@ -1,5 +1,6 @@
 package com.kefala.app.Views.Rooms;
 
+import com.kefala.app.Controllers.Rooms.Main;
 import com.kefala.app.Controllers.Rooms.Types;
 import com.kefala.app.Controllers.Router;
 import com.kefala.app.Models.PriceDTO;
@@ -42,9 +43,8 @@ public class TypesMenus {
         RoomTypeDTO roomTypeDTO = new RoomTypeDTO();
         View.showMsg("\nNombre del tipo de habitación: ");
         roomTypeDTO.setName(View.listenMsg());
-        View.showMsg("\nNombre del tipo de habitación: ");
-        PriceDTO price = null;
-        price = new PriceDTO();
+        View.showMsg("\nPrecio por noche del nuevo tipo: ");
+        PriceDTO price = new PriceDTO();
         try {
             price.setAmount(Double.valueOf(View.listenMsg()));
         } catch (Exception e) {
@@ -59,58 +59,63 @@ public class TypesMenus {
     public static void deleteRoomType(List<RoomTypeDTO> roomsTypes) {
         listRoomTypes(roomsTypes);
         String response;
-        View.showMsg("\nIngrese el numero de cliente a eliminar: ");
+        View.showMsg("\nIngrese el numero de tipo de habitación a eliminar: ");
         Integer id = Integer.valueOf(View.listenMsg());
-        /*
-        ClientDTO clientDTO = Main.find(id);
-        if (clientDTO != null) {
-            View.showMsg("\nEl cliente " + clientDTO.getFirstName() + " " + clientDTO.getLastName() + " va a ser eliminado. Confirme para continuar. (s/n)\n");
+
+        RoomTypeDTO room = Types.find(id);
+        if (room != null) {
+            View.showMsg("\nEl tipo de habitación " + room.getName() + " va a ser eliminado. Confirme para continuar. (s/n)\n");
             response = View.listenMsg();
             if (response.equals("s")) {
-                Main.delete(clientDTO);
+                Types.delete(room);
             }
         } else {
-            View.showMsg("\n\nEl codigo de usuario no existe, desea borrar otro usuario? (s/n)");
+            View.showMsg("\n\nEl codigo de habitación no existe, desea borrar otro usuario? (s/n)");
             response = View.listenMsg();
             if (response.equals("s")) {
-                deleteRoomType(clients);
+                deleteRoomType(roomsTypes);
             }
         }
-        */
     }
 
     public static void updateRoomType(List<RoomTypeDTO> roomsTypes) {
         listRoomTypes(roomsTypes);
         String response;
-        View.showMsg("\nIngrese el numero de cliente a editar: ");
+        View.showMsg("\nIngrese el numero de tipo de habitación a editar: ");
         Integer id = Integer.valueOf(View.listenMsg());
-        /*
-        ClientDTO clientDTO = Main.find(id);
-        if (clientDTO != null) {
-            View.showMsg("\nNombre(" + clientDTO.getFirstName() + "): ");
-            clientDTO.setFirstName(View.listenMsg());
-            View.showMsg("\nApellido(" + clientDTO.getLastName() + "): ");
-            clientDTO.setLastName(View.listenMsg());
-            View.showMsg("\nEl cliente " + clientDTO.getFirstName() + " " + clientDTO.getLastName() + " va a ser guardado. Confirme para continuar. (s/n)\n");
+        RoomTypeDTO room = Types.find(id);
+        if (room != null) {
+            View.showMsg("\nNombre(" + room.getName() + "): ");
+            room.setName(View.listenMsg());
+            View.showMsg("\nPrecio(" + room.getPrice().toString() + "): ");
+            PriceDTO price = new PriceDTO();
+            try {
+                price.setAmount(Double.valueOf(View.listenMsg()));
+            } catch (Exception e) {
+                View.showMsg("\nIngrese un precio correcto: ");
+                price.setAmount(Double.valueOf(View.listenMsg()));
+            }
+            room.setPrice(price);
+
+            View.showMsg("\nEl tipo de habitacion " + room.getName() + " va a ser guardado. Confirme para continuar. (s/n)\n");
             response = View.listenMsg();
             if (response.equals("s")) {
-                Main.update(clientDTO);
+                Types.update(room);
             }
         } else {
             View.showMsg("\n\nEl codigo de usuario no existe, desea eidtar otro usuario? (s/n)");
             response = View.listenMsg();
             if (response.equals("s")) {
-                updateRoomType(clients);
+                updateRoomType(roomsTypes);
             }
         }
-        */
     }
 
     public static void listRoomTypes(List<RoomTypeDTO> roomsTypes) {
         for (RoomTypeDTO roomType:roomsTypes) {
             if (roomType.getId() != null) {
                 View.showMsg("\n" + roomType.getId());
-                View.showMsg(". " + roomType.getName());
+                View.showMsg(". " + roomType.getName() + ", " + roomType.getPrice().toString());
             }
         }
         View.showMsg("\n\n");
@@ -133,5 +138,4 @@ public class TypesMenus {
         } while (!(option.equals("1")|| option.equals("2") || option.equals("3") || option.equals("4")));
         return option;
     }
-
 }

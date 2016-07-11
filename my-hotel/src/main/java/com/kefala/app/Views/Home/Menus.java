@@ -33,6 +33,7 @@ public class Menus {
         View.showTitle("INICIO - HOTEL APP");
         menuOptions.add("Clientes");
         menuOptions.add("Habitaciones");
+        menuOptions.add("Tipo de habitación");
         menuOptions.add("Reservas");
         View.showOptionMenu(menuOptions);
         View.showMsg("\nIngrese la opción a elegir: ");
