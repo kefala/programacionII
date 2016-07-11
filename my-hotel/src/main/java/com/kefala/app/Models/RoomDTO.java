@@ -9,7 +9,6 @@ public class RoomDTO extends DTO {
     private RoomTypeDTO roomType;
     private String name;
     private List<DateDTO> reservedDays;
-    private PriceDTO price;
 
     public RoomDTO() {
     }
@@ -38,11 +37,4 @@ public class RoomDTO extends DTO {
         this.reservedDays = reservedDays;
     }
 
-    public PriceDTO getPrice() {
-        return price;
-    }
-
-    public void setPrice(PriceDTO price) {
-        this.price = price;
-    }
 }

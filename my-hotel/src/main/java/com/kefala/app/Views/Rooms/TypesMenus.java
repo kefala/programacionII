@@ -70,7 +70,7 @@ public class TypesMenus {
                 Types.delete(room);
             }
         } else {
-            View.showMsg("\n\nEl codigo de habitación no existe, desea borrar otro usuario? (s/n)");
+            View.showMsg("\n\nEl codigo de habitación no existe, desea borrar otro tipo de habitación? (s/n)");
             response = View.listenMsg();
             if (response.equals("s")) {
                 deleteRoomType(roomsTypes);
@@ -103,7 +103,7 @@ public class TypesMenus {
                 Types.update(room);
             }
         } else {
-            View.showMsg("\n\nEl codigo de usuario no existe, desea eidtar otro usuario? (s/n)");
+            View.showMsg("\n\nEl tipo de habitación no existe, desea editar otro tipo? (s/n)");
             response = View.listenMsg();
             if (response.equals("s")) {
                 updateRoomType(roomsTypes);

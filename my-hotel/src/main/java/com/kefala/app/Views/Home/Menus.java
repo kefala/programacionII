@@ -14,9 +14,7 @@ public class Menus {
         ArrayList<String> menuOptions = new ArrayList<String>();
         View.showTitle("INICIO - HOTEL APP");
         menuOptions.add("Clientes");
-        menuOptions.add("Habitaciones");
         menuOptions.add("Reservas");
-        menuOptions.add("Recepcionistas");
         View.showOptionMenu(menuOptions);
         View.showMsg("\nIngrese la opción a elegir: ");
         id = Integer.valueOf(View.listenMsg());
@@ -35,6 +33,7 @@ public class Menus {
         menuOptions.add("Habitaciones");
         menuOptions.add("Tipo de habitación");
         menuOptions.add("Reservas");
+        menuOptions.add("Recepcionistas");
         View.showOptionMenu(menuOptions);
         View.showMsg("\nIngrese la opción a elegir: ");
         id = Integer.valueOf(View.listenMsg());

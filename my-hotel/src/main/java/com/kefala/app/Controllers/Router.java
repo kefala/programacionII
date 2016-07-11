@@ -21,6 +21,9 @@ public class Router {
             if (section.equals("Tipo de habitación")) {
                 com.kefala.app.Controllers.Rooms.Types.showView(user);
             }
+            if (section.equals("Habitaciones")) {
+                com.kefala.app.Controllers.Rooms.Main.showView(user);
+            }
 
             //TODO: create not found section exceptions
         }

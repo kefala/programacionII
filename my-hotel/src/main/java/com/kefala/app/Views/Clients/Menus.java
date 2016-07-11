@@ -61,7 +61,7 @@ public class Menus {
                 Main.delete(clientDTO);
             }
         } else {
-            View.showMsg("\n\nEl codigo de usuario no existe, desea borrar otro usuario? (s/n)");
+            View.showMsg("\n\nEl codigo de cliente no existe, desea borrar otro cliente? (s/n)");
             response = View.listenMsg();
             if (response.equals("s")) {
                 deleteClient(clients);
@@ -86,7 +86,7 @@ public class Menus {
                 Main.update(clientDTO);
             }
         } else {
-            View.showMsg("\n\nEl codigo de usuario no existe, desea eidtar otro usuario? (s/n)");
+            View.showMsg("\n\nEl codigo de cliente no existe, desea editar otro cliente? (s/n)");
             response = View.listenMsg();
             if (response.equals("s")) {
                 updateClient(clients);
