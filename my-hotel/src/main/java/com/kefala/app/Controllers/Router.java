@@ -15,7 +15,10 @@ public class Router {
             if (section.equals("Home")) {
                 com.kefala.app.Controllers.Home.Main.showView(user);
             }
-            if (section.equals("Clients")) {
+            if (section.equals("Clientes")) {
+                com.kefala.app.Controllers.Clients.Main.showView(user);
+            }
+            if (section.equals("Tipo de habitación")) {
                 com.kefala.app.Controllers.Clients.Main.showView(user);
             }
 

@@ -24,6 +24,8 @@ public class Main {
                 System.out.printf("Ocurrió un error");
                 break;
         }
+
+        System.out.printf(sectionOption + "\n");
         Router.router(sectionOption, user);
     }
 

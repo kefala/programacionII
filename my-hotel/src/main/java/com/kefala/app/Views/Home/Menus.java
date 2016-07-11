@@ -9,26 +9,37 @@ import java.util.ArrayList;
  */
 public class Menus {
     public static String showMenuRecepcionist() {
-        View.showTitle("INICIO - HOTEL APP");
+        String response = "";
+        Integer id = 0;
         ArrayList<String> menuOptions = new ArrayList<String>();
+        View.showTitle("INICIO - HOTEL APP");
         menuOptions.add("Clientes");
-        menuOptions.add("Tipos y Tarifas de Habitaciones");
         menuOptions.add("Habitaciones");
         menuOptions.add("Reservas");
         menuOptions.add("Recepcionistas");
         View.showOptionMenu(menuOptions);
         View.showMsg("\nIngrese la opción a elegir: ");
-        return View.listenMsg();
+        id = Integer.valueOf(View.listenMsg());
+        if (id < 4 && id > 0) {
+            response = menuOptions.get((id - 1));
+        }
+        return response;
     }
 
     public static String showMenuAdministrator() {
-        View.showTitle("INICIO - HOTEL APP");
+        String response = "";
+        Integer id = 0;
         ArrayList<String> menuOptions = new ArrayList<String>();
+        View.showTitle("INICIO - HOTEL APP");
         menuOptions.add("Clientes");
         menuOptions.add("Habitaciones");
         menuOptions.add("Reservas");
         View.showOptionMenu(menuOptions);
         View.showMsg("\nIngrese la opción a elegir: ");
-        return View.listenMsg();
+        id = Integer.valueOf(View.listenMsg());
+        if (id < 4 && id > 0) {
+            response = menuOptions.get((id - 1));
+        }
+        return response;
     }
 }
