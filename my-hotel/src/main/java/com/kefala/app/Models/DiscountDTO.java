@@ -1,17 +1,12 @@
 package com.kefala.app.Models;
 
 public class DiscountDTO {
-    private Double percentage;
+    private static final Double PERCENTAGE = 25.00;
 
-    public DiscountDTO(Double percentage) {
-        this.percentage = percentage;
+    public DiscountDTO() {
     }
 
     public Double getPercentage() {
-        return percentage;
-    }
-
-    public void setPercentage(Double percentage) {
-        this.percentage = percentage;
+        return PERCENTAGE;
     }
 }

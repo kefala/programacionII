@@ -77,24 +77,24 @@ public class RoomMenu {
         View.showMsg("\nTipos de habitación:");
         List<RoomTypeDTO> roomTypes= Types.getRoomTypes();
         TypesMenus.listRoomTypes(roomTypes);
-        View.showMsg("\nIngrese el tipo de habitación");
+        View.showMsg("Ingrese el tipo de habitación: ");
         Integer id = Integer.valueOf(View.listenMsg());
         RoomTypeDTO roomTypeDto = Types.find(id);
         roomDto.setRoomType(roomTypeDto);
         List<DateDTO> reserves = Collections.emptyList();
         roomDto.setReservedDays(reserves);
         Main.create(roomDto);
-        View.showMsg("\n\nSe guardo con exito la habitación.\n\n");
+        View.showMsg("\nSe guardo con exito la habitación.\n\n");
     }
 
     public static void deleteRoom(List<RoomDTO> rooms) {
         listRooms(rooms);
         String response;
-        View.showMsg("\nIngrese el numero de habitación a eliminar: ");
+        View.showMsg("Ingrese el numero de habitación a eliminar: ");
         Integer id = Integer.valueOf(View.listenMsg());
         RoomDTO room = Main.find(id);
         if (room != null) {
-            View.showMsg("\nEl tipo de habitación " + room.getName() + " va a ser eliminado. Confirme para continuar. (s/n)\n");
+            View.showMsg("\nLa habitación " + room.getName() + " va a ser eliminada. Confirme para continuar. (s/n) ");
             response = View.listenMsg();
             if (response.equals("s")) {
                 Main.delete(room);
@@ -111,19 +111,25 @@ public class RoomMenu {
     public static void updateRoom(List<RoomDTO> rooms) {
         listRooms(rooms);
         String response;
-        View.showMsg("\nIngrese el numero de tipo de habitación a editar: ");
+        View.showMsg("Ingrese el numero de habitación a editar: ");
         Integer id = Integer.valueOf(View.listenMsg());
         RoomDTO room = Main.find(id);
         if (room != null) {
             View.showMsg("\nNombre(" + room.getName() + "): ");
             room.setName(View.listenMsg());
-            View.showMsg("\nLa habitación " + room.getName() + " va a ser guardada. Confirme para continuar. (s/n)\n");
+            List<RoomTypeDTO> roomTypes= Types.getRoomTypes();
+            TypesMenus.listRoomTypes(roomTypes);
+            View.showMsg("Tipo de habitación(" + room.getRoomType().getId().toString() + "): ");
+            Integer idType = Integer.valueOf(View.listenMsg());
+            RoomTypeDTO roomTypeDto = Types.find(idType);
+            room.setRoomType(roomTypeDto);
+            View.showMsg("La habitación " + room.getName() + " va a ser guardada. Confirme para continuar. (s/n) ");
             response = View.listenMsg();
             if (response.equals("s")) {
                 Main.update(room);
             }
         } else {
-            View.showMsg("\n\nLa habitación no existe, desea editar otra habitación? (s/n)");
+            View.showMsg("\nLa habitación no existe, desea editar otra habitación? (s/n)");
             response = View.listenMsg();
             if (response.equals("s")) {
                 updateRoom(rooms);
