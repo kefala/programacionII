@@ -43,9 +43,19 @@ public class Menus {
         client.setFirstName(View.listenMsg());
         View.showMsg("\nApellido: ");
         client.setLastName(View.listenMsg());
-        client.setCommon(true);
+        client.setCommon(false);
         Main.create(client);
         View.showMsg("\n\nSe guardo con exito al nuevo cliente.\n\n");
+    }
+    public static ClientDTO createClientToResevation() {
+        ClientDTO client = new ClientDTO();
+        View.showMsg("\nNombre: ");
+        client.setFirstName(View.listenMsg());
+        View.showMsg("\nApellido: ");
+        client.setLastName(View.listenMsg());
+        client.setCommon(false);
+        Main.create(client);
+        return client;
     }
 
     public static void deleteClient(List<ClientDTO> clients) {

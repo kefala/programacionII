@@ -37,7 +37,7 @@ public class Menus {
         View.showOptionMenu(menuOptions);
         View.showMsg("\nIngrese la opción a elegir: ");
         id = Integer.valueOf(View.listenMsg());
-        if (id < 4 && id > 0) {
+        if (id < 6 && id > 0) {
             response = menuOptions.get((id - 1));
         }
         return response;
