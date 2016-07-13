@@ -1,20 +1,15 @@
 package com.kefala.app.Views.Reservations;
 
-import com.kefala.app.Controllers.Clients.Main;
+import com.kefala.app.Controllers.Reservations.Main;
 import com.kefala.app.Controllers.Rooms.Types;
 import com.kefala.app.Controllers.Router;
 import com.kefala.app.Entities.ClientDAO;
-import com.kefala.app.Models.ClientDTO;
-import com.kefala.app.Models.DateDTO;
-import com.kefala.app.Models.RoomTypeDTO;
-import com.kefala.app.Models.UserDTO;
+import com.kefala.app.Models.*;
 import com.kefala.app.Views.Clients.Menus;
 import com.kefala.app.Views.Rooms.TypesMenus;
 import com.kefala.app.Views.View;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 /**
@@ -63,6 +58,7 @@ public class Menu {
     }
     private static void createReservation() {
         String option = null;
+        ClientDTO client = null;
         View.showMsg("\nEl cliente vino alguna vez? (s/n)");
         option = View.listenMsg();
         while (!option.equals("s") && !option.equals("n")) {
@@ -70,7 +66,7 @@ public class Menu {
             option = View.listenMsg();
         }
         if (option.equals("s")) {
-            ClientDTO client = searchUser();
+            client = searchUser();
 
             while (client == null) {
                 View.showMsg("\nNo se encontro al usuario, desea crear uno nuevo? (s/n)");
@@ -86,14 +82,41 @@ public class Menu {
                 }
             }
         } else {
-            ClientDTO client = Menus.createClientToResevation();
+            client = Menus.createClientToResevation();
         }
+        thing(client);
+
+    }
+
+    private static void thing(ClientDTO client) {
         RoomTypeDTO roomType = getRoomType();
         while (roomType == null) {
             roomType = getRoomType();
         }
-        List<DateDTO> reservationDate = consultByReservationDate();
+        List<DateDTO> days = consultByReservationDate();
 
+        if (isRoomFree(roomType, days)) {
+            ReservationDTO reservation = new ReservationDTO();
+            DiscountDTO discount = new DiscountDTO();
+            Double price = (client.getCommon()) ? roomType.getPrice().getAmount() * discount.getPercentage() : roomType.getPrice().getAmount();
+            price = price * days.size();
+            reservation.setClient(client);
+            reservation.setDays(days);
+            reservation.setRoom(getRoom(roomType, days));
+            reservation.setFinalPrice(price);
+            View.showMsg("Reserva \n");
+            View.showMsg("Habitación: " + reservation.getRoom().getName() + ", Precio:" + reservation.getFinalPrice().toString());
+        } else {
+            View.showMsg("No se encontró una habitación, desea cancelar? (s/n) \n");
+        }
+    }
+
+    private static RoomDTO getRoom(RoomTypeDTO roomType, List<DateDTO> reservationDate) {
+        return Main.getRoom(roomType, reservationDate);
+    }
+
+    private static boolean isRoomFree(RoomTypeDTO roomType, List<DateDTO> reservationDate) {
+        return Main.isRoomFree(roomType, reservationDate);
     }
 
     private static RoomTypeDTO getRoomType() {
