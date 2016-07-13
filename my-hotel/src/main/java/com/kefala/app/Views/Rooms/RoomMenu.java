@@ -81,8 +81,6 @@ public class RoomMenu {
         Integer id = Integer.valueOf(View.listenMsg());
         RoomTypeDTO roomTypeDto = Types.find(id);
         roomDto.setRoomType(roomTypeDto);
-        List<DateDTO> reserves = Collections.emptyList();
-        roomDto.setReservedDays(reserves);
         Main.create(roomDto);
         View.showMsg("\nSe guardo con exito la habitación.\n\n");
     }

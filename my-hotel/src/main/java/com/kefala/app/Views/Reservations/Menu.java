@@ -1,14 +1,21 @@
 package com.kefala.app.Views.Reservations;
 
 import com.kefala.app.Controllers.Clients.Main;
+import com.kefala.app.Controllers.Rooms.Types;
 import com.kefala.app.Controllers.Router;
 import com.kefala.app.Entities.ClientDAO;
 import com.kefala.app.Models.ClientDTO;
+import com.kefala.app.Models.DateDTO;
+import com.kefala.app.Models.RoomTypeDTO;
 import com.kefala.app.Models.UserDTO;
 import com.kefala.app.Views.Clients.Menus;
+import com.kefala.app.Views.Rooms.TypesMenus;
 import com.kefala.app.Views.View;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 /**
  * Created by kefala on 11/07/16.
@@ -64,6 +71,7 @@ public class Menu {
         }
         if (option.equals("s")) {
             ClientDTO client = searchUser();
+
             while (client == null) {
                 View.showMsg("\nNo se encontro al usuario, desea crear uno nuevo? (s/n)");
                 option = View.listenMsg();
@@ -80,6 +88,40 @@ public class Menu {
         } else {
             ClientDTO client = Menus.createClientToResevation();
         }
+        RoomTypeDTO roomType = getRoomType();
+        while (roomType == null) {
+            roomType = getRoomType();
+        }
+        List<DateDTO> reservationDate = consultByReservationDate();
+
+    }
+
+    private static RoomTypeDTO getRoomType() {
+        List<RoomTypeDTO> roomTypes = Types.getRoomTypes();
+        TypesMenus.listRoomTypes(roomTypes);
+        View.showMsg("\nTipo de habitación: ");
+        Integer id = Integer.valueOf(View.listenMsg());
+        RoomTypeDTO room = Types.find(id);
+        return room;
+    }
+
+    private static List<DateDTO> consultByReservationDate() {
+        List<DateDTO> days = new ArrayList<DateDTO>();
+        DateDTO date = new DateDTO();
+        date.setYear(2016);
+        View.showMsg("\nDía de ingreso: ");
+        date.setNumberDay(Integer.valueOf(View.listenMsg()));
+        View.showMsg("\nCantidad de noches: ");
+        Integer count = Integer.valueOf(View.listenMsg());
+        for (int i = 0; i < count; i++) {
+            try {
+                days.add(new DateDTO(date.getNumberDay(), date.getYear()));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            date.setNumberDay(date.getNumberDay() + 1);
+        }
+        return days;
     }
 
     private static ClientDTO searchUser() {

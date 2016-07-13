@@ -8,7 +8,6 @@ import java.util.List;
 public class RoomDTO extends DTO {
     private RoomTypeDTO roomType;
     private String name;
-    private List<DateDTO> reservedDays;
 
     public RoomDTO() {
     }
@@ -27,14 +26,6 @@ public class RoomDTO extends DTO {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public List<DateDTO> getReservedDays() {
-        return reservedDays;
-    }
-
-    public void setReservedDays(List<DateDTO> reservedDays) {
-        this.reservedDays = reservedDays;
     }
 
 }
