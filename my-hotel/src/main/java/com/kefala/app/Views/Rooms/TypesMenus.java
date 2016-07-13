@@ -1,6 +1,5 @@
 package com.kefala.app.Views.Rooms;
 
-import com.kefala.app.Controllers.Rooms.Main;
 import com.kefala.app.Controllers.Rooms.Types;
 import com.kefala.app.Controllers.Router;
 import com.kefala.app.Models.PriceDTO;

@@ -3,15 +3,12 @@ package com.kefala.app.Views.Rooms;
 import com.kefala.app.Controllers.Rooms.Main;
 import com.kefala.app.Controllers.Rooms.Types;
 import com.kefala.app.Controllers.Router;
-import com.kefala.app.Entities.RoomTypeDAO;
-import com.kefala.app.Models.DateDTO;
 import com.kefala.app.Models.RoomDTO;
 import com.kefala.app.Models.RoomTypeDTO;
 import com.kefala.app.Models.UserDTO;
 import com.kefala.app.Views.View;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 /**
@@ -115,7 +112,7 @@ public class RoomMenu {
         if (room != null) {
             View.showMsg("\nNombre(" + room.getName() + "): ");
             room.setName(View.listenMsg());
-            List<RoomTypeDTO> roomTypes= Types.getRoomTypes();
+            List<RoomTypeDTO> roomTypes = Types.getRoomTypes();
             TypesMenus.listRoomTypes(roomTypes);
             View.showMsg("Tipo de habitación(" + room.getRoomType().getId().toString() + "): ");
             Integer idType = Integer.valueOf(View.listenMsg());

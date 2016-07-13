@@ -4,7 +4,6 @@ import com.kefala.app.Models.RoomDTO;
 import com.kefala.app.Models.RoomTypeDTO;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 /**
